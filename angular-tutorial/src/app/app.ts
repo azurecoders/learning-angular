@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { Component, computed, effect, Signal, signal, WritableSignal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Profile } from './profile/profile';
 
@@ -52,25 +52,93 @@ export class App {
   //   this.btnDisable = !this.btnDisable;
   // }
 
-  data = 10;
-  count = signal(100);
+  // data = 10;
+  // count = signal(100);
 
-  constructor() {
-    effect(() => {
-      console.log(`This is data: ${this.data}`);
-      console.log(`This is data: ${this.count()}`);
+  // constructor() {
+  //   effect(() => {
+  //     console.log(`This is data: ${this.data}`);
+  //     console.log(`This is data: ${this.count()}`);
 
-      if (this.count() === 110) {
-        this.count.set(100);
-      }
-    });
+  //     if (this.count() === 110) {
+  //       this.count.set(100);
+  //     }
+  //   });
+  // }
+
+  // updateData() {
+  //   this.data++;
+  // }
+
+  // updateSignal() {
+  //   this.count.set(this.count() + 1);
+  // }
+
+  // height = 100;
+  // width = 20;
+  // area = this.height * this.width;
+
+  // handleHeight() {
+  //   this.height = this.height + 10;
+  //   this.area = this.height * this.width;
+  // }
+
+  // height = signal(100);
+  // width = signal(20);
+  // area = computed(() => this.height() * this.width());
+  // constructor() {
+  //   effect(() => {
+  //     console.log(`Area is: ${this.area()}`);
+  //   });
+  // }
+
+  // handleHeight() {
+  //   this.height.set(this.height() + 10);
+  // }
+
+  // constructor() {
+  //   effect(() => {
+  //     if (this.speed() > 0 && this.speed() < 80) this.color = 'green';
+  //     if (this.speed() >= 80 && this.speed() < 120) this.color = 'orange';
+  //     if (this.speed() >= 120) this.color = 'red';
+
+  //     console.log(`Speed: ${this.speed()}`);
+  //   });
+
+  //   effect(() => {
+  //     console.log(this.fruit());
+  //   });
+  // }
+
+  // color = 'black';
+  // fruit = signal('Apple');
+  // speed = signal(0);
+
+  // increaseSpeed() {
+  //   this.speed.set(this.speed() + 10);
+  // }
+
+  // changeFruit() {
+  //   this.fruit.set('Banana');
+  // }
+
+  // data: WritableSignal<string | number> = signal<string | number>('Muzammil');
+  // speed: Signal<number> = computed<number>(() => 90);
+  // users: WritableSignal<string[]> = signal(['Muzammil', 'Ibrahim', 'Imran']);
+
+  // handleData() {
+  //   // this.data.set('Muzammil');
+  //   this.users.update((item) => [...item, 'Arshad']);
+  //   console.log(this.users());
+  // }
+
+  name: WritableSignal<string> = signal('');
+
+  resetValue() {
+    this.name.set('Muzammil');
   }
 
-  updateData() {
-    this.data++;
-  }
-
-  updateSignal() {
-    this.count.set(this.count() + 1);
+  setValue(value: string) {
+    this.name.set(value);
   }
 }

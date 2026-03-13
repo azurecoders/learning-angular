@@ -1,4 +1,4 @@
-.div1 {
+/* .div1 {
   background-color: red;
   height: 100px;
   width: 100px;
@@ -8,4 +8,25 @@
   background-color: green;
   height: 100px;
   width: 100px;
+} */
+
+p {
+  font-size: 22px;
+}
+
+input {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 8px 14px;
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+button {
+  background-color: deepskyblue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 20px;
 }
