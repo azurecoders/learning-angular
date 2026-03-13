@@ -1,2 +1,51 @@
-<h1>Hello {{ title() }}</h1>
-<h2>{{ name }}</h2>
+<!-- <h1>{{ name }}</h1>
+<h2>{{ email }}</h2>
+<h2>{{ 10 + 20 + 30 }}</h2>
+<h2>{{ getName(10, 20) }}</h2>
+<app-profile></app-profile>
+<app-profile></app-profile>
+<app-profile></app-profile>
+<app-profile></app-profile>
+<app-profile></app-profile>
+<app-profile></app-profile> -->
+
+<!-- <h1>Event Binding</h1>
+<p>Count Value: {{ count }}</p>
+<button (click)="counter('plus')">Increment</button>
+<button (click)="counter('minus')">Decrement</button>
+<button (click)="showUserName()">Show</button> -->
+
+<!-- <h1>Events</h1>
+<input type="text" (input)="handleEvent($event.type)" />
+<input type="text" (change)="handleEvent($event.type)" />
+<button (click)="handleEvent($event.type)">Click</button>
+<select (change)="handleEvent($event.type)" name="" id="">
+  <option value="">Car</option>
+  <option value="">Bike</option>
+  <option value="">Jeep</option>
+</select>
+<input type="text" (blur)="handleEvent($event.type)" />
+<input type="text" (focus)="handleEvent($event.type)" />
+
+<div class="div1" (mouseenter)="handleEvent($event.type)"></div>
+<div class="div2" (mouseleave)="handleEvent($event.type)"></div> -->
+
+<!-- <h2>{{ data }}</h2>
+<button (click)="updateData(60)">Update Data</button>
+<button (click)="handleEvent($event)">Click</button>
+<input type="text" (change)="handleEvent($event)" /> -->
+
+<!-- <h2>Property Binding</h2> -->
+<!-- <button disabled="{{ btnDisable }}">Click Me</button>
+<button [disabled]="btnDisable">Click Me</button> -->
+<!-- <input type="text" readonly="{{ inputReadonly }}" /> -->
+<!-- <input type="text" [readonly]="inputReadonly" /> -->
+<!-- <button (click)="toggle()">Toggle</button> -->
+
+<!-- <img [src]="url" alt="sample-image" /> -->
+
+<h2>Signals</h2>
+<button (click)="updateData()">Update Data</button>
+<h3>{{ data }}</h3>
+<button (click)="updateSignal()">Update Signal</button>
+<h3>Signal: {{ count() }}</h3>
