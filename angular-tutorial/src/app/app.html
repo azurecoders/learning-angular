@@ -68,7 +68,195 @@
 <h3>{{ this.users().map((item)=>item.toUpperCase()) }}</h3>
 <button (click)="handleData()">Show Updated Users</button> -->
 
-<p>Value: {{ name() }}</p>
+<!-- <p>Value: {{ name() }}</p>
 
 <input type="text" [value]="name()" (input)="setValue($event.target.value)" />
-<button (click)="resetValue()">Reset Value</button>
+<button (click)="resetValue()">Reset Value</button> -->
+
+<!-- <style>
+  div {
+    font-size: 30px;
+    padding: 20px;
+    margin: 20px;
+  }
+</style>
+
+<h1 class="heading"><button class="btn btn-primary">Login</button> Style in Angular</h1>
+<app-user-data></app-user-data>
+<app-admin-data></app-admin-data>
+
+<div style="border: 1px solid green"><h1 class="heading2">Mid Area</h1></div> -->
+<!--
+<h1>Control Flow Statements</h1>
+<div style="display: flex; flex-direction: column; gap: 10px">
+  @if (isLogin()) {
+    <span>Welcome, User</span>
+    <button style="width: fit-content" (click)="handleLogin()">Logout</button>
+  } @else {
+    <span>Please Login</span>
+    <button style="width: fit-content" (click)="handleLogin()">Login</button>
+  }
+</div>
+
+<hr />
+
+<h2>Toggle</h2>
+
+<h3>{{ show() }}</h3>
+@if (show()) {
+  <button (click)="show.set(false)">Hide</button>
+} @else {
+  <button (click)="show.set(true)">Show</button>
+}
+
+<hr />
+<h2>Check Status</h2>
+
+<select name="" id="" (change)="handleUpdateStatus($event)">
+  <option value="notStarted">Not Started</option>
+  <option value="progress">In Progress</option>
+  <option value="success">Success</option>
+  <option value="error">Error</option>
+</select>
+
+<br />
+<br />
+
+@if (status() == 'notStarted') {
+  <span style="color: black">Not Started</span>
+} @else if (status() == 'progress') {
+  <span style="color: orange">In Progress</span>
+} @else if (status() == 'success') {
+  <span style="color: green">Success</span>
+} @else if (status() == 'error') {
+  <span style="color: red">Error</span>
+} -->
+
+<!-- <h1>For Loop | Control Flow Statement</h1>
+
+<div>
+  <ul>
+    @for (user of users(); track user) {
+      <li>{{ user }}</li>
+      <br />
+    }
+  </ul>
+
+  <ul>
+    @for (user of usersDetail(); track user.id) {
+      <li style="padding: 10px; width: 90%" [style.backgroundColor]="$odd ? '#F9F6EE' : '#E2DFD2'">
+        <span
+          >{{ `${$index + 1}. ${user.name} - ${user.hobby} - ${user.email}` }}
+          @if ($first) {
+            <span style="font-weight: bold; color: green">- Admin</span>
+          }
+          @if ($last) {
+            <span style="font-weight: bold; color: red">- Guest</span>
+          }
+        </span>
+      </li>
+      @if ($count == $index + 1) {
+        <p style="font-weight: bold">
+          Total Users:
+
+          <span style="color: orange; font-size: 20px">{{ $count }}</span>
+        </p>
+      }
+    }
+  </ul>
+</div> -->
+
+<!-- <h1>Switch Case | Control Flow Statement</h1>
+
+<select name="" id="" (change)="handleStatusUpdate($event)">
+  <option value="notStarted">Not Started</option>
+  <option value="progress">In Progress</option>
+  <option value="success">Success</option>
+  <option value="error">Error</option>
+</select>
+<br />
+<br />
+
+@switch (status()) {
+  @case ('notStarted') {
+    <span>No Update Yet</span>
+  }
+  @case ('progress') {
+    <span style="color: orange">In Progress</span>
+  }
+  @case ('success') {
+    <span style="color: green">Success</span>
+  }
+  @default {
+    <span style="color: red">Error</span>
+  }
+} -->
+
+<!-- <h1>Two Way Data Binding</h1> -->
+
+<!-- <h2>{{ name() }}</h2>
+<input type="text" [value]="name()" (input)="name.set($event.target.value)" />
+
+<hr />
+
+<h2>{{ age }}</h2>
+<input type="text" [(ngModel)]="age" />
+<input type="text" [ngModel]="age" (ngModelChange)="age = $event" />
+
+<hr />
+-->
+
+<!-- <h2>{{ userData().name }}</h2>
+<input
+  type="text"
+  [value]="userData().name"
+  (input)="updateUserData('name', $event.target.value)"
+/>
+
+<hr />
+
+<h2>{{ userData().age }}</h2>
+<input type="text" [value]="userData().age" (input)="updateUserData('age', $event.target.value)" /> -->
+
+<!-- <hr />
+
+<h2>{{ userData().email }}</h2>
+<input
+  type="text"
+  [value]="userData().email"
+  (input)="updateUserData('email', $event.target.value)"
+/> -->
+
+<!-- <h1>Getter and Setter</h1>
+
+<h2>{{ uName }}</h2>
+<input type="text" [(ngModel)]="uName" />
+
+<hr />
+
+<h2>{{ studentName }}</h2>
+<input type="text" [(ngModel)]="studentName" /> -->
+
+<h1>Directives</h1>
+
+<!-- <h2 *ngIf="isLoggedin()">Welcome User</h2>
+
+<div>
+  <ul *ngFor="let user of users()">
+    <li>{{ user }}</li>
+  </ul>
+</div>
+
+<p [ngStyle]="{ color: pColor }">Hello Visitors</p> -->
+<!--
+<div>
+  <ul *ngFor="let user of users()">
+    <li>{{ user }}</li>
+  </ul>
+</div> -->
+
+<div>
+  <ul *ngFor="let x of usersDetail()">
+    <li>{{ x.name }}, {{ x.hobby }}, {{ x.email }}</li>
+  </ul>
+</div>

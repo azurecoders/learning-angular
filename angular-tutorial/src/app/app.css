@@ -10,7 +10,7 @@
   width: 100px;
 } */
 
-p {
+/* p {
   font-size: 22px;
 }
 
@@ -29,4 +29,15 @@ button {
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 20px;
+} */
+
+/* .heading {
+  background-color: orange;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+} */
+
+.heading {
+  border: 4px solid black;
 }

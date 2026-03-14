@@ -1,0 +1,34 @@
+.btn {
+  background-color: grey;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  color: white;
+  transition: all;
+  transition-duration: 300ms;
+}
+
+.btn-primary {
+  background-color: rgb(18, 18, 114);
+}
+
+.btn-primary:hover {
+  background-color: rgb(49, 49, 158);
+}
+
+.btn-warning {
+  background-color: rgb(123, 12, 12);
+}
+
+.btn-warning:hover {
+  background-color: rgb(219, 50, 50);
+}
+
+.btn-success {
+  background-color: rgb(5, 149, 5);
+}
+
+.btn-success:hover {
+  background-color: rgb(64, 192, 64);
+}

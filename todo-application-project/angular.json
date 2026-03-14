@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "angular-tutorial": {
+    "todo-application-project": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -24,7 +24,9 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css", "src/btns.css"]
+            "styles": [
+              "src/styles.css"
+            ]
           },
           "configurations": {
             "production": {
@@ -54,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-tutorial:build:production"
+              "buildTarget": "todo-application-project:build:production"
             },
             "development": {
-              "buildTarget": "angular-tutorial:build:development"
+              "buildTarget": "todo-application-project:build:development"
             }
           },
           "defaultConfiguration": "development"
