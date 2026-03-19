@@ -5,3 +5,13 @@
   padding: 10px;
   border-radius: 10px;
 }
+
+.child-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.child-nav a {
+  color: brown;
+}

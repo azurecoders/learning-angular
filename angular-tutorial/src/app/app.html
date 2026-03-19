@@ -237,7 +237,7 @@
 <h2>{{ studentName }}</h2>
 <input type="text" [(ngModel)]="studentName" /> -->
 
-<h1>Directives</h1>
+<!-- <h1>Directives</h1> -->
 
 <!-- <h2 *ngIf="isLoggedin()">Welcome User</h2>
 
@@ -255,8 +255,172 @@
   </ul>
 </div> -->
 
-<div>
+<!-- <div>
   <ul *ngFor="let x of usersDetail()">
-    <li>{{ x.name }}, {{ x.hobby }}, {{ x.email }}</li>
+    <li>
+      {{ x.name }}, {{ x.hobby }}, {{ x.email }} -
+      <span *ngFor="let perm of x.permission">{{ perm }}</span>
+    </li>
   </ul>
+</div> -->
+
+<!-- <h2>*ngIf Directives</h2> -->
+
+<!-- <h3 *ngIf="isShown">Welcome, User</h3> -->
+
+<!-- <div *ngIf="login; else elseBlock">
+  <button>Logout</button>
 </div>
+
+<ng-template #elseBlock>
+  <button>Login</button>
+</ng-template> -->
+
+<!-- <div *ngIf="block == 1">
+  <h1>Heading 1</h1>
+</div>
+
+<div *ngIf="block == 2">
+  <h2>Heading 2</h2>
+</div>
+
+<div *ngIf="block == 3">
+  <h3>Heading 3</h3>
+</div>
+
+<button (click)="updateBlock()">Update Block Count</button> -->
+
+<!-- <h2>*ngSwitch Directives</h2>
+
+<button (click)="changeColor('red')">Red</button>
+<button (click)="changeColor('green')">Green</button>
+<button (click)="changeColor('yellow')">Yellow</button>
+<button (click)="changeColor('blue')">Blue</button>
+<button (click)="changeColor('pink')">Pink</button>
+
+<div [ngSwitch]="color">
+  <h3 *ngSwitchCase="'red'" style="background-color: red">Red Color</h3>
+  <h3 *ngSwitchCase="'green'" style="background-color: green">Green Color</h3>
+  <h3 *ngSwitchCase="'yellow'" style="background-color: yellow">Yellow Color</h3>
+  <h3 *ngSwitchCase="'blue'" style="background-color: blue">Blue Color</h3>
+  <h3 *ngSwitchCase="'pink'" style="background-color: pink">Pink Color</h3>
+  <h3 *ngSwitchDefault>No Color Matched</h3>
+</div> -->
+
+<!-- <h1>Custom Components</h1>
+<app-footer></app-footer> -->
+
+<!-- <h1>Inline Template</h1> -->
+
+<!-- <app-search-box></app-search-box> -->
+
+<!-- @for (num of nums(); track num) {
+  <app-search-box></app-search-box>
+  <br />
+} -->
+
+<!-- <h1>Passing Data</h1> -->
+
+<!-- <h3>{{ userName() }}</h3>
+
+<app-child [userName]="userName()"></app-child>
+<app-child [userName]="'Ahmed'"></app-child> -->
+
+<!-- <h3>Selected User: {{ selectedUser() }}</h3>
+
+<br />
+
+<input type="text" placeholder="Enter Name..." [(ngModel)]="userName" id="input" />
+<button (click)="addNewUser()">Add New User</button>
+
+@for (user of users(); track user) {
+  <app-child
+    [userName]="user"
+    (setSelectedUser)="setSelectedUser($event)"
+    (deleteSelectedUser)="deleteSelectedUser($event)"
+  ></app-child>
+} -->
+
+<!-- <h1>Global State Sharing</h1>
+
+<app-display-count></app-display-count>
+<hr />
+<app-control-count></app-control-count> -->
+
+<!-- <h1>Pipes</h1>
+
+<h3>{{ title() | uppercase }}</h3>
+<h3>{{ title() | titlecase }}</h3>
+
+<h3>{{ name() | titlecase }}</h3>
+<input type="text" (input)="name.set($event.target.value)" />
+
+<hr />
+
+<h3>I Bought {{ mobile | titlecase }} on {{ date }} in {{ amount | currency: 'PKR' }}</h3>
+
+<h3>{{ amount | currency: 'USD' }}</h3>
+<hr />
+<h3>{{ today | date }}</h3>
+<h3>{{ today | date: 'MM' }}</h3>
+<h3>{{ today | date: 'dd' }}</h3>
+<h3>{{ today | date: 'yy' }}</h3>
+<h3>{{ today | date: 'short' }}</h3>
+<h3>{{ today | date: 'full' }}</h3>
+
+<hr />
+
+<h2>{{ user() | json }}</h2> -->
+
+<!-- <h1>Custom Pipes</h1>
+
+<h3>{{ title() | trimText | uppercase }}</h3>
+<h3>{{ name() | trimText: 5 | lowercase }}</h3>
+<h3>{{ name() | trimText: 1 }}</h3>
+<h3>{{ name() | trimText: 12 }}</h3>
+
+<hr />
+
+<h3>{{ amount() | currencyConverter | currency: 'USD' }}</h3>
+<h3>{{ amount() | currencyConverter: 30 | currency: 'USD' }}</h3> -->
+
+<!-- <app-header></app-header>
+
+<router-outlet></router-outlet> -->
+
+<!-- <button (click)="loadUserDetails()">Load User Details</button>
+
+<ng-container #container></ng-container> -->
+
+<h1>Reactive Forms</h1>
+
+<!-- <ul>
+  <li>Email: {{ email.value }}</li>
+  <li>Password: {{ password.value }}</li>
+</ul>
+
+<input type="email" placeholder="Enter email..." [formControl]="email" />
+<br />
+<br />
+<input type="password" placeholder="Enter password..." [formControl]="password" />
+<br />
+<br />
+<button (click)="login()">Login</button>
+<button (click)="reset()">Reset</button> -->
+
+<ul>
+  <li>Name: {{ loginForm.value.name }}</li>
+  <li>Email: {{ loginForm.value.email }}</li>
+  <li>Password: {{ loginForm.value.password }}</li>
+</ul>
+<br /><br />
+<form [formGroup]="loginForm" (ngSubmit)="handleSubmit()" method="post">
+  <input type="text" name="" id="" formControlName="name" placeholder="Enter name..." />
+  <br /><br />
+  <input type="email" name="" id="" formControlName="email" placeholder="Enter email..." />
+  <br /><br />
+  <input type="password" name="" id="" formControlName="password" placeholder="Enter password..." />
+  <br /><br />
+  <button>Submit</button>
+  <button (click)="reset()">Reset</button>
+</form>

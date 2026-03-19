@@ -1,14 +1,40 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { AdminData } from './admin-data/admin-data';
+import { Child } from './child/child';
+import { Header } from './components/header/header';
+import { ControlCount } from './control-count/control-count';
+import { CurrencyConverterPipe } from './custom-pipe/currency-converter-pipe';
+import { TrimTextPipe } from './custom-pipe/trim-text-pipe';
+import { DisplayCount } from './display-count/display-count';
+import { Footer } from './footer/footer';
 import { Profile } from './profile/profile';
+import { SearchBox } from './search-box/search-box';
 import { UserData } from './user-data/user-data';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { UserDetailsCustom } from './pages/user-details-custom/user-details-custom';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Profile, UserData, AdminData, FormsModule, CommonModule],
+  imports: [
+    RouterOutlet,
+    ReactiveFormsModule,
+    Profile,
+    UserData,
+    AdminData,
+    FormsModule,
+    CommonModule,
+    Footer,
+    SearchBox,
+    Child,
+    DisplayCount,
+    ControlCount,
+    TrimTextPipe,
+    CurrencyConverterPipe,
+    Header,
+    UserDetailsCustom,
+  ],
   templateUrl: './app.html',
   // template: `<h1>This is inline template {{ name }}</h1>`,
   // styleUrl: './app.css',
@@ -193,34 +219,116 @@ export class App {
   // set studentName(val: string) {
   //   this.userData.update((prev) => ({ ...prev, name: val }));
   // }
-
   // isLoggedin = signal(true);
   // pColor = 'red';
-  users = signal(['Muzammil', 'Ahmed', 'Ibrahim']);
-  usersDetail = signal([
-    {
-      id: 1,
-      name: 'Muzammil',
-      hobby: 'Coding',
-      email: 'muzammil@xyz.com',
-    },
-    {
-      id: 2,
-      name: 'Ahmed',
-      hobby: 'Gaming',
-      email: 'ahmed@hotmail.com',
-    },
-    {
-      id: 3,
-      name: 'Ibrahim',
-      hobby: 'Reading',
-      email: 'wibrahim@gmail.com',
-    },
-    {
-      id: 4,
-      name: 'Ashraf',
-      hobby: 'Calisthenics',
-      email: 'calpro@ashram.org',
-    },
-  ]);
+  // users = signal(['Muzammil', 'Ahmed', 'Ibrahim']);
+  // usersDetail = signal([
+  //   {
+  //     id: 1,
+  //     name: 'Muzammil',
+  //     hobby: 'Coding',
+  //     email: 'muzammil@xyz.com',
+  //     permission: ['read', 'write'],
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'Ahmed',
+  //     hobby: 'Gaming',
+  //     email: 'ahmed@hotmail.com',
+  //     permission: ['edit'],
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'Ibrahim',
+  //     hobby: 'Reading',
+  //     email: 'wibrahim@gmail.com',
+  //     permission: ['read', 'write', 'edit'],
+  //   },
+  //   {
+  //     id: 4,
+  //     name: 'Ashraf',
+  //     hobby: 'Calisthenics',
+  //     email: 'calpro@ashram.org',
+  //     permission: ['delete'],
+  //   },
+  // ]);
+  // isShown = true;
+  // login = false;
+  // block = 1;
+  // updateBlock() {
+  //   if (this.block <= 2) {
+  //     this.block++;
+  //   }
+  // }
+  // color = 'pink';
+  // changeColor(col: string) {
+  //   this.color = col;
+  // }
+  // nums = signal([0, 1, 2, 3, 4, 5]);
+  // userName = signal('Muzammil');
+  // users = signal(['Muzammil', 'Ahmed', 'Ibrahim', 'Rashid']);
+  // newUserName = signal('');
+  // selectedUser = signal('');
+  // get userName() {
+  //   return this.newUserName();
+  // }
+  // set userName(val: string) {
+  //   this.newUserName.set(val);
+  // }
+  // addNewUser() {
+  //   this.users.update((prev) => [...prev, this.newUserName()]);
+  //   this.newUserName.set('');
+  //   document.getElementById('input')?.focus();
+  // }
+  // setSelectedUser(name: string) {
+  //   this.selectedUser.set(name);
+  // }
+  // deleteSelectedUser(name: string) {
+  //   this.users.update((prev) => prev.filter((item) => item !== name));
+  // }
+  // title = signal('Learning to Code');
+  // name = signal('');
+  // amount = 10000;
+  // date = '24-8-2025';
+  // mobile = 'samsung';
+  // today = new Date();
+  // user = signal({ name: 'Muzammil', age: 20, email: 'muzammil@xyz.com' });
+  // title = signal('Learning to Code');
+  // name = signal('My Name Is Muzammil');
+  // amount = signal(20);
+  // @ViewChild('container', { read: ViewContainerRef })
+  // container: ViewContainerRef | undefined;
+  // async loadUserDetails() {
+  //   this.container?.clear();
+  //   const { UserDetailsCustom } = await import('./pages/user-details-custom/user-details-custom');
+  //   this.container?.createComponent(UserDetailsCustom);
+  // }
+  // email = new FormControl('');
+  // password = new FormControl('');
+  // login() {
+  //   console.log(`Email: ${this.email.value}`);
+  //   console.log(`Password: ${this.password.value}`);
+  // }
+  // reset() {
+  //   this.email.setValue('');
+  //   this.password.setValue('');
+  // }
+
+  loginForm = new FormGroup({
+    name: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
+
+  handleSubmit() {
+    console.log(this.loginForm.value);
+  }
+
+  reset() {
+    this.loginForm.setValue({
+      name: '',
+      email: '',
+      password: '',
+    });
+  }
 }

@@ -1,0 +1,24 @@
+<h1>Home Page</h1>
+
+<!-- <button (click)="goToProfile()">Go to Profile</button> -->
+<a routerLink="profile" [queryParams]="{ id: 1, age: 20, name: 'Muzammil' }"
+  >Go to Muzammil's Profile</a
+>
+<br />
+<br />
+<a routerLink="profile" [queryParams]="{ id: 2, age: 35, name: 'Ahmed' }">Go to Ahmed's Profile</a>
+
+<br />
+<br />
+
+<button (click)="goToNadeemProfile()">Go to Nadeem's Profile</button>
+
+<hr />
+
+<a routerLink="about/Ahmed">Go To About Page</a>
+<br />
+<br />
+<a [routerLink]="['about', name(), 20]">Go To About Page</a>
+<br />
+<br />
+<button (click)="goToAbout()">Go to About Page</button>
