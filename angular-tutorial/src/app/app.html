@@ -392,7 +392,7 @@
 
 <ng-container #container></ng-container> -->
 
-<h1>Reactive Forms</h1>
+<!-- <h1>Reactive Forms</h1> -->
 
 <!-- <ul>
   <li>Email: {{ email.value }}</li>
@@ -408,7 +408,7 @@
 <button (click)="login()">Login</button>
 <button (click)="reset()">Reset</button> -->
 
-<ul>
+<!-- <ul>
   <li>Name: {{ loginForm.value.name }}</li>
   <li>Email: {{ loginForm.value.email }}</li>
   <li>Password: {{ loginForm.value.password }}</li>
@@ -423,4 +423,140 @@
   <br /><br />
   <button>Submit</button>
   <button (click)="reset()">Reset</button>
-</form>
+</form> -->
+
+<!-- <h1>Reactive Forms</h1> -->
+
+<!-- <ul>
+  <li>Email: {{ email.value }}</li>
+  <li>Password: {{ password.value }}</li>
+</ul>
+
+<input type="email" placeholder="Enter Email" [formControl]="email" />
+<br /><br />
+<input type="password" placeholder="Enter Password" [formControl]="password" />
+<br /><br />
+<button (click)="login()">Login</button>
+<button (click)="reset()">Reset</button> -->
+
+<!-- <h2>Reactive Form - Form Group</h2> -->
+
+<!-- <ul> -->
+<!--   <li>Name: {{loginForm.value.name}}</li> -->
+<!--   <li>Email: {{loginForm.value.email}}</li> -->
+<!--   <li>Password: {{loginForm.value.password}}</li> -->
+<!-- </ul> -->
+
+<!-- <form [formGroup]="loginForm" (ngSubmit)="handleProfile()" method="post"> -->
+<!--   <input type="text" placeholder="Enter name" formControlName="name" /> -->
+<!--   <br /> -->
+<!--   @if(name?.hasError('required') && name?.touched) { -->
+<!--   <span class="error">This name field is required</span> -->
+<!--   } -->
+<!--   <br /> -->
+<!---->
+<!--   <input type="email" placeholder="Enter email" formControlName="email" /> -->
+<!--   <br /> -->
+<!--   @if(email?.errors?.['email'] && email?.touched) { -->
+<!--   <span class='error'>This email field is not valid</span> -->
+<!--   } -->
+<!---->
+<!--   @if(email?.errors?.['required'] && email?.touched) { -->
+<!--   <span class='error'>This email field is required</span> -->
+<!--   } -->
+<!--   <input type="password" placeholder="Enter password" formControlName="password" /> -->
+<!--   <br /> -->
+<!--   @if(password?.errors?.['required'] && password?.touched) { -->
+<!--   <span class='error'>This password field is required</span> -->
+<!--   } -->
+<!--   @if(password?.errors?.['minlength'] && password?.touched) { -->
+<!--   <span class='error'>This password should be atleast 8 charachters long</span> -->
+<!--   } -->
+<!--   @if(password?.errors?.['maxlength'] && password?.touched) { -->
+<!--   <span class='error'>This password should not exceed 16 charachters</span> -->
+<!--   } -->
+<!---->
+<!--   <br /> -->
+<!---->
+<!--   <button type="submit" [disabled]="loginForm.invalid">Submit</button> -->
+<!--   <button type="reset" (click)="reset()">Reset</button> -->
+<!-- </form> -->
+
+<!-- <h1>Forms With Signals</h1> -->
+<!---->
+<!-- <ul> -->
+<!--   <li>Email: {{loginForm.email().value()}}</li> -->
+<!--   <li>Password: {{loginForm.password().value()}}</li> -->
+<!-- </ul> -->
+<!---->
+<!-- <input type="email" placeholder="Enter email" [formField]="loginForm.email"> -->
+<!-- @if(loginForm.email().touched() && loginForm.email().invalid()) { -->
+<!-- <ul> -->
+<!--   @for (error of loginForm.email().errors(); track error) { -->
+<!--   <li>{{error.message}}</li> -->
+<!--   } -->
+<!-- </ul> -->
+<!-- } -->
+<!-- <br /> -->
+<!-- <br /> -->
+<!-- <input type="password" placeholder="Enter password" [formField]="loginForm.password"> -->
+<!-- @if(loginForm.password().touched() && loginForm.password().invalid()) { -->
+<!-- <ul> -->
+<!--   @for(error of loginForm.password().errors(); track error) { -->
+<!--   <li>{{error.message}}</li> -->
+<!--   } -->
+<!-- </ul> -->
+<!-- } -->
+<!-- <br /> -->
+<!-- <br /> -->
+<!-- <button (click)="login()" [disabled]="loginForm().invalid()">Submit</button> -->
+<!-- <button (click)="reset()">Reset</button> -->
+
+<!-- <h1>Template Driven Form</h1> -->
+<!---->
+<!-- <ul> -->
+<!--   <li>Name: {{userDetails?.username}}</li> -->
+<!--   <li>Password: {{userDetails?.password}}</li> -->
+<!--   <li>Gender: {{userDetails?.gender}}</li> -->
+<!--   <li>Bio: {{userDetails?.userBio}}</li> -->
+<!-- </ul> -->
+<!---->
+<!-- <form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)"> -->
+<!--   <input type="text" name="username" placeholder='Enter username' ngModel /> -->
+<!--   <br /> -->
+<!--   <br /> -->
+<!--   <input type="password" name="password" placeholder='Enter password' ngModel /> -->
+<!--   <br /> -->
+<!--   <br /> -->
+<!--   <select name="gender" ngModel> -->
+<!--     <option value="">Select Gender</option> -->
+<!--     <option value="male">Male</option> -->
+<!--     <option value="Female">Female</option> -->
+<!--   </select> -->
+<!--   <br /> -->
+<!--   <br /> -->
+<!--   <textarea rows="" name='userBio' ngModel cols=""></textarea> -->
+<!--   <br /> -->
+<!--   <br /> -->
+<!--   <button>Add User</button> -->
+<!-- </form> -->
+
+<!-- <h1>Services in Angular</h1> -->
+<!---->
+<!-- <ul> -->
+<!--   @for(product of productData(); track product["id"]) { -->
+<!--   <li>{{product["name"]}} - {{product["price"]}}</li> -->
+<!--   } -->
+<!-- </ul> -->
+
+<h1>Fetching Data</h1>
+
+<ul>
+  @for(user of usersData(); track user.id) {
+  <ul class="product-ul">
+    <li>Name: {{user.firstName}}</li>
+    <li>Last Name: {{user.lastName}}</li>
+    <li>Age: {{user.age}}</li>
+  </ul>
+  }
+</ul>

@@ -1,6 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild, ViewContainerRef } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component, signal, ViewChild, ViewContainerRef } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  NgForm,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { AdminData } from './admin-data/admin-data';
 import { Child } from './child/child';
@@ -14,6 +21,9 @@ import { Profile } from './profile/profile';
 import { SearchBox } from './search-box/search-box';
 import { UserData } from './user-data/user-data';
 import { UserDetailsCustom } from './pages/user-details-custom/user-details-custom';
+import { email, form, FormField, maxLength, minLength, required } from '@angular/forms/signals';
+import { ProductService } from './services/product-service';
+import { Users } from './services/users';
 
 @Component({
   selector: 'app-root',
@@ -34,6 +44,7 @@ import { UserDetailsCustom } from './pages/user-details-custom/user-details-cust
     CurrencyConverterPipe,
     Header,
     UserDetailsCustom,
+    FormField,
   ],
   templateUrl: './app.html',
   // template: `<h1>This is inline template {{ name }}</h1>`,
@@ -313,22 +324,111 @@ export class App {
   //   this.email.setValue('');
   //   this.password.setValue('');
   // }
+  // loginForm = new FormGroup({
+  //   name: new FormControl(''),
+  //   email: new FormControl(''),
+  //   password: new FormControl(''),
+  // });
+  // handleSubmit() {
+  //   console.log(this.loginForm.value);
+  // }
+  // reset() {
+  //   this.loginForm.setValue({
+  //     name: '',
+  //     email: '',
+  //     password: '',
+  //   });
+  // }
+  // email = new FormControl('');
+  // password = new FormControl('');
+  // login() {
+  //   console.log(this.email.value);
+  //   console.log(this.password.value);
+  // }
+  // reset() {
+  //   this.email.setValue('');
+  //   this.password.setValue('');
+  // }
+  // loginForm = new FormGroup({
+  //   name: new FormControl('', [Validators.required]),
+  //   email: new FormControl('', [Validators.required, Validators.email]),
+  //   password: new FormControl('', [
+  //     Validators.required,
+  //     Validators.minLength(8),
+  //     Validators.maxLength(16),
+  //   ]),
+  // });
+  //
+  // get name() {
+  //   return this.loginForm.get('name');
+  // }
+  //
+  // get email() {
+  //   return this.loginForm.get('email');
+  // }
+  //
+  // get password() {
+  //   return this.loginForm.get('password');
+  // }
+  //
+  // handleProfile() {
+  //   console.log(this.loginForm.value);
+  // }
+  //
+  // reset() {
+  //   this.loginForm.setValue({
+  //     name: '',
+  //     email: '',
+  //     password: '',
+  //   });
+  // }
+  // loginModel = signal({
+  //   email: '',
+  //   password: '',
+  // });
+  //
+  // loginForm = form(this.loginModel, (field) => {
+  //   required(field.email, { message: 'Please enter email address' });
+  //   minLength(field.email, 5, { message: 'Email should be atleast 5 charachters' });
+  //   email(field.email, { message: 'Email is invalid' });
+  //   required(field.password, { message: 'Please enter your password' });
+  //   minLength(field.password, 8, { message: 'Password must be atleast 8 charachters long' });
+  //   maxLength(field.password, 16, { message: 'Password must not exceed 16 charachters' });
+  // });
+  //
+  // login() {
+  //   console.log(this.loginForm.email().value());
+  //   console.log(this.loginForm.password().value());
+  // }
+  //
+  // reset() {
+  //   this.loginForm.email().value.set('');
+  //   this.loginForm.password().value.set('');
+  // }
+  // userDetails: any = undefined;
+  //
+  // addUser(data: NgForm) {
+  //   console.log(data);
+  //   this.userDetails = data;
+  //
+  // }
+  //
+  // constructor(private productService: ProductService) {}
+  //
+  // productData: any = signal([]);
+  //
+  // ngOnInit() {
+  //   let data = this.productService.getProducts();
+  //   this.productData.set(data);
+  // }
 
-  loginForm = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-  });
+  constructor(private usersService: Users) {}
 
-  handleSubmit() {
-    console.log(this.loginForm.value);
-  }
+  usersData: any = signal([]);
 
-  reset() {
-    this.loginForm.setValue({
-      name: '',
-      email: '',
-      password: '',
+  ngOnInit() {
+    this.usersService.getProducts().subscribe((data) => {
+      this.usersData.set(data?.users);
     });
   }
 }
