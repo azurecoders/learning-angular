@@ -1,0 +1,10 @@
+<h1>Product Details</h1>
+
+<ul>
+  <img [src]="productData()?.images?.[0]" width="250" />
+  <li>{{ productData()?.title }}</li>
+  <li>{{ productData()?.description }}</li>
+  <li>{{ productData()?.category }}</li>
+  <li>{{ productData()?.price | currency: 'USD' }}</li>
+  <li>{{ productData()?.tags?.join(', ') }}</li>
+</ul>

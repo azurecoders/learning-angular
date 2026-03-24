@@ -1,50 +1,49 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal, ViewChild, ViewContainerRef } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  NgForm,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormField } from '@angular/forms/signals';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { AdminData } from './admin-data/admin-data';
 import { Child } from './child/child';
 import { Header } from './components/header/header';
+import { ProductList } from './components/product-list/product-list';
+import { UserList } from './components/user-list/user-list';
 import { ControlCount } from './control-count/control-count';
 import { CurrencyConverterPipe } from './custom-pipe/currency-converter-pipe';
 import { TrimTextPipe } from './custom-pipe/trim-text-pipe';
 import { DisplayCount } from './display-count/display-count';
 import { Footer } from './footer/footer';
+import { UserDetailsCustom } from './pages/user-details-custom/user-details-custom';
 import { Profile } from './profile/profile';
 import { SearchBox } from './search-box/search-box';
 import { UserData } from './user-data/user-data';
-import { UserDetailsCustom } from './pages/user-details-custom/user-details-custom';
-import { email, form, FormField, maxLength, minLength, required } from '@angular/forms/signals';
-import { ProductService } from './services/product-service';
-import { Users } from './services/users';
+import { UsersService } from './services/users-service';
+import { User } from './services/userDataType';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet,
+    RouterLink,
+    // ProductList,
     ReactiveFormsModule,
-    Profile,
-    UserData,
-    AdminData,
+    // Profile,
+    // UserData,
+    // AdminData,
     FormsModule,
     CommonModule,
-    Footer,
-    SearchBox,
-    Child,
-    DisplayCount,
-    ControlCount,
-    TrimTextPipe,
-    CurrencyConverterPipe,
-    Header,
-    UserDetailsCustom,
-    FormField,
+    // Footer,
+    // SearchBox,
+    // Child,
+    // DisplayCount,
+    // ControlCount,
+    // TrimTextPipe,
+    // CurrencyConverterPipe,
+    // Header,
+    // UserDetailsCustom,
+    // FormField,
+    // UserList,
   ],
   templateUrl: './app.html',
   // template: `<h1>This is inline template {{ name }}</h1>`,
@@ -421,14 +420,48 @@ export class App {
   //   let data = this.productService.getProducts();
   //   this.productData.set(data);
   // }
+  // constructor(private usersService: Users) {}
+  //
+  // usersData = signal<User[]>([]);
+  //
+  // ngOnInit() {
+  //   this.usersService.getProducts().subscribe((data) => {
+  //     this.usersData.set(data.users);
+  //   });
+  // }
+  //
+  // constructor(private user: UsersService) {}
+  // usersData = signal<User[] | undefined>(undefined);
+  // ngOnInit() {
+  //   this.user.getUsers().subscribe((data) => {
+  //     this.usersData.set(data);
+  //   });
+  // }
 
-  constructor(private usersService: Users) {}
+  data = signal<any[]>([]);
 
-  usersData: any = signal([]);
+  myObservable = new Observable((observer) => {
+    // observer.next([1, 2, 3, 4, 5]);
+    setTimeout(() => {
+      observer.next(1);
+    }, 1000);
+    setTimeout(() => {
+      observer.next(2);
+    }, 2000);
+    setTimeout(() => {
+      observer.next(3);
+    }, 3000);
+    setTimeout(() => {
+      observer.next(4);
+    }, 4000);
+    setTimeout(() => {
+      observer.next(5);
+    }, 5000);
+  });
 
-  ngOnInit() {
-    this.usersService.getProducts().subscribe((data) => {
-      this.usersData.set(data?.users);
+  GetAsyncData() {
+    this.myObservable.subscribe((val: any) => {
+      this.data.update((item) => [...item, val]);
     });
   }
 }

@@ -1,0 +1,9 @@
+<h2>Product List</h2>
+
+<ul>
+  @for (product of productsData(); track product.id) {
+    <ul class="product-ul">
+      <a [routerLink]="'details/' + product.id">{{ product.title }}</a>
+    </ul>
+  }
+</ul>

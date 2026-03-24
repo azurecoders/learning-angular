@@ -1,0 +1,17 @@
+<h1>Add New User</h1>
+
+<div>
+  <input type="text" placeholder="Enter Name" [formControl]="name" />
+  <br />
+  <br />
+
+  <input type="email" placeholder="Enter Email" [formControl]="email" />
+  <br />
+  <br />
+
+  <input type="text" placeholder="Enter Age" [formControl]="age" />
+  <br />
+  <br />
+
+  <button (click)="submit()">Add User</button>
+</div>

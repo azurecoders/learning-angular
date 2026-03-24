@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UsersAPIResponse } from './userDataType';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +10,6 @@ export class Users {
   constructor(private http: HttpClient) {}
 
   getProducts() {
-    return this.http.get<any>(this.apiUrl);
+    return this.http.get<UsersAPIResponse>(this.apiUrl);
   }
 }

@@ -1,3 +1,5 @@
+/* @import 'tailwindcss'; */
+
 /* You can add global styles to this file, and also import other style files */
 .heading {
   background-color: orange;
@@ -17,5 +19,5 @@
 }
 
 .error {
-  color: red
+  color: red;
 }
